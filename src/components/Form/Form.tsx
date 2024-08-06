@@ -5,7 +5,11 @@ import { SearchType } from "../../types";
 import Alert from "../Alert/Alert";
 
 
-export default function form() {
+type FormProps = {
+  fetchWeather: (search: SearchType) => Promise<void>
+}
+
+export default function form({fetchWeather} : FormProps) {
 
   // con el generic "<SearchType>" le asignamos el tipo de dato
   //a el state search y setSearch
@@ -32,6 +36,7 @@ export default function form() {
         setAlert("Todos los campos son obligatorios")
         return // con este return hacemos que no se ejecuten las siguientes lineas de codigo
     }
+    fetchWeather(search)
   }
 
   return (
@@ -52,9 +57,10 @@ export default function form() {
             />
         </div>
 
-        <div className={styles.field}>
+        <div className={styles.fieldpais}>
             <label htmlFor="country">Pais:</label>
             <select
+                className={styles.country}
                 id="country"
                 value={search.country}
                 name="country"
@@ -70,7 +76,11 @@ export default function form() {
             </select>
         </div>
 
-        <input className={styles.submit} type="submit" value='Consultar Clima' />
+        <input className={styles.submit} 
+          type="submit" 
+          value='Consultar Clima'
+          
+        />
     </form>
   )
 }

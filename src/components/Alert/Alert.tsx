@@ -1,7 +1,7 @@
-
+import styles from "./Alert.module.css"
 
 export default function Alert() {
   return (
-    <div>Alerta aqui</div>
+    <div className={styles.alert}>Alerta aqui</div>
   )
 }

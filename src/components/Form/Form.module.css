@@ -5,12 +5,21 @@
     gap: 2rem;
 }
 
+
+.fieldpais{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    color: rgb(255, 255, 255);
+}
+
+
 .form input[type="text"],
 .form select{
     padding: 1rem;
     background-color: transparent;
     border: .3rem solid var(--white);
-    color: var(--white);
+    color: var(--primary);
     font-size: 1.8rem;
     font-weight: 400;
     border-radius: 1rem;

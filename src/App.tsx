@@ -1,9 +1,12 @@
-import { useState } from "react"
 import styles from "./App.module.css"
 import Form from "./components/Form/Form"
+import WeatherDetail from "./components/WeatherDetail/WeatherDetail"
+import useWeather from "./hooks/useWeather"
 
 function App() {
  
+
+  const { weather ,fetchWeather, hasWeatherData } = useWeather()
 
 
   return (
@@ -11,8 +14,17 @@ function App() {
       <h1 className={styles.title}>Buscador de clima</h1>
 
       <div className={styles.container}>
-        <Form />
-        <p>2</p>
+        <Form 
+          fetchWeather={fetchWeather}
+        />
+          {hasWeatherData && // Con el && es un if, si hasWeatherData 
+                            //es true muestra el componnente<WeatherDetail>
+            <WeatherDetail 
+              weather={weather}
+            />} 
+            
+          
+          
       </div>
     </>
   )
